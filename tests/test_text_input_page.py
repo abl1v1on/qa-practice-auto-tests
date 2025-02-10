@@ -46,7 +46,8 @@ def test_text_field_max_length_text(page: TextInputPage) -> None:
 
 def test_text_field_is_required(page: TextInputPage) -> None:
     page.text_field.send_keys(Keys.ENTER)
-    assert page.validation_message(page.text_field) == 'Заполните это поле.', (
+    errors = ['Заполните это поле.', 'Please fill out this field.']
+    assert page.validation_message(page.text_field) in errors, (
         'Не отображается сообщение от браузера об обязательности поля'
     )
 

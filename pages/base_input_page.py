@@ -11,6 +11,10 @@ from .base_page import BasePage
 class BaseInputPageLocator:
     result_block: locator = (By.ID, 'result')
     result_text: locator = (By.ID, 'result-text')
+    error_message: locator = (
+        By.XPATH, 
+        '//span[@id="error_1_id_text_string"]/strong'
+    )
 
 
 class BaseInputPage(BasePage):
@@ -21,12 +25,21 @@ class BaseInputPage(BasePage):
     @property
     def result_block(self) -> WebElement:
         return self.find(*BaseInputPageLocator.result_block)
-    
+
     @property
     def result_text(self) -> WebElement:
         return self.find(*BaseInputPageLocator.result_text)
     
+    @property
+    def error_message(self) -> WebElement:
+        return self.find(*BaseInputPageLocator.error_message)
+
     def check_result_text(self, text: str) -> bool:
         expected_result = text
         actual_result = self.result_text.text
         return True if expected_result == actual_result else False
+
+    def check_error_message(self, error: str) -> bool:
+        expected_error = error 
+        actual_error = self.error_message.text
+        return True if expected_error == actual_error else False

@@ -26,3 +26,9 @@ class BasePage:
             f'arguments[0].removeAttribute("{attr}");', 
             element
         )
+    
+    def validation_message(self, element: WebElement) -> None:
+        return self.browser.execute_script(
+            'return arguments[0].validationMessage;',
+            element
+        )

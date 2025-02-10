@@ -1,0 +1,1 @@
+locator = tuple[str, str]

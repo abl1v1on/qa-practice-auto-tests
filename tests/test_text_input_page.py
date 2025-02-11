@@ -1,4 +1,3 @@
-import time
 import pytest
 from dataclasses import dataclass
 from typing import Generator

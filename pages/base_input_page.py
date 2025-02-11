@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from selenium.webdriver.ie.webdriver import WebDriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.remote.webelement import WebElement
 
 from . import locator
@@ -14,6 +15,10 @@ class BaseInputPageLocator:
     error_message: locator = (
         By.XPATH, 
         '//span/strong'
+    )
+    input_field: locator = (
+        By.XPATH, 
+        '//input[@class="textinput textInput form-control"]'
     )
 
 
@@ -34,6 +39,10 @@ class BaseInputPage(BasePage):
     def error_message(self) -> WebElement:
         return self.find(*BaseInputPageLocator.error_message)
 
+    @property
+    def input_field(self) -> WebElement:
+        return self.find(*BaseInputPageLocator.input_field)
+
     def check_result_text(self, text: str) -> bool:
         expected_result = text
         actual_result = self.result_text.text
@@ -43,3 +52,6 @@ class BaseInputPage(BasePage):
         expected_error = error 
         actual_error = self.error_message.text
         return True if expected_error == actual_error else False
+
+    def fill_and_press_enter(self, text: str) -> None:
+        self.input_field.send_keys(text + Keys.ENTER)

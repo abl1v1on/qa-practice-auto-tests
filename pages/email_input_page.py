@@ -20,8 +20,4 @@ class EmailInputPage(BaseInputPage):
 
     @property
     def email_field(self) -> WebElement:
-        return self.find(*EmailInputPageLocator.email_field)
-
-    # TODO: вынеси в базовый класс инпутов
-    def fill_and_press_enter(self, email: str) -> None:
-        self.email_field.send_keys(email + Keys.ENTER)
+        return super().input_field

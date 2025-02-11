@@ -20,7 +20,4 @@ class TextInputPage(BaseInputPage):
 
     @property
     def text_field(self) -> WebElement:
-        return self.find(*TextInputPageLocator.text_field)
-
-    def fill_and_press_enter(self, text: str) -> None:
-        self.text_field.send_keys(text + Keys.ENTER)
+        return super().input_field

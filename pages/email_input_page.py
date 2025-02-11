@@ -1,16 +1,7 @@
-from dataclasses import dataclass
 from selenium.webdriver.ie.webdriver import WebDriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.remote.webelement import WebElement
 
-from . import locator
 from .base_input_page import BaseInputPage
-
-
-@dataclass(frozen=True)
-class EmailInputPageLocator:
-    email_field: locator = (By.ID, 'id_email')
 
 
 class EmailInputPage(BaseInputPage):

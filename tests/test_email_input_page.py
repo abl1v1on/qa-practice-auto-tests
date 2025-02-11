@@ -35,7 +35,8 @@ def test_emaiL_field_min_length_email(page: EmailInputPage) -> None:
 
 def test_email_field_is_required(page: EmailInputPage) -> None:
     page.email_field.send_keys(Keys.ENTER)
-    assert page.validation_message(page.email_field) == 'Заполните это поле.', (
+    errors = ['Заполните это поле.', 'Please fill out this field.']
+    assert page.validation_message(page.email_field) in errors, (
         'Неправильнон отображение результата'
     )
 

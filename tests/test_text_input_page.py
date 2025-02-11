@@ -4,17 +4,17 @@ from typing import Generator
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.ie.webdriver import WebDriver
 
+from pages import FieldIsRequiredErrorMixin
 from pages.text_input_page import TextInputPage
 
 
 @dataclass(frozen=True)
-class TextInputPageError:
+class TextInputPageError(FieldIsRequiredErrorMixin):
     TWO_OR_MORE_CHARS: str = 'Please enter 2 or more characters'
     NO_MORE_25_CHARS: str = 'Please enter no more than 25 characters'
     ENTER_A_VALID_STRING: str = (
         'Enter a valid string consisting of letters, numbers, underscores or hyphens.'
     )
-    REQUIRED_FIELD: str = 'This field is required.'
 
 
 @pytest.fixture(scope='function')

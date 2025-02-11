@@ -4,13 +4,13 @@ from typing import Generator
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.ie.webdriver import WebDriver
 
+from pages import FieldIsRequiredErrorMixin
 from pages.email_input_page import EmailInputPage
 
 
 @dataclass(frozen=True)
-class EmailInputPageError:
+class EmailInputPageError(FieldIsRequiredErrorMixin):
     ENTER_A_VALID_EMAIL: str = 'Enter a valid email address.'
-    REQUIRED_FIELD: str = 'This field is required.'
 
 
 @pytest.fixture(scope='function')

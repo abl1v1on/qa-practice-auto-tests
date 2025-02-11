@@ -13,7 +13,7 @@ class BaseInputPageLocator:
     result_text: locator = (By.ID, 'result-text')
     error_message: locator = (
         By.XPATH, 
-        '//span[@id="error_1_id_text_string"]/strong'
+        '//span/strong'
     )
 
 

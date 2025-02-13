@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.ie.webdriver import WebDriver
 
 from pages import FieldIsRequiredErrorMixin
-from pages.text_input_page import TextInputPage
+from pages.inputs.text_input_page import TextInputPage
 
 
 @dataclass(frozen=True)

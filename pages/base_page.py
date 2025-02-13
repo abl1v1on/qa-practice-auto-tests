@@ -1,5 +1,19 @@
+from dataclasses import dataclass
 from selenium.webdriver.ie.webdriver import WebDriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
+
+from . import locator
+
+
+@dataclass(frozen=True)
+class BasePageLocator:
+    result_block: locator = (By.ID, 'result')
+    result_text: locator = (By.ID, 'result-text')
+    error_message: locator = (
+        By.XPATH, 
+        '//span/strong'
+    )
 
 
 class BasePage:
@@ -32,3 +46,31 @@ class BasePage:
             'return arguments[0].validationMessage;',
             element
         )
+    
+    def check_result_text(self, text: str) -> bool:
+        expected_result = text
+        actual_result = self.result_text.text
+        return True if expected_result == actual_result else False
+
+    def check_error_message(self, error: str) -> bool:
+        expected_error = error 
+        actual_error = self.error_message.text
+        return True if expected_error == actual_error else False
+
+    """
+    NOTE: Базовые элементы, которые есть почти на каждой странице.
+    Конкретно в этом примере имеет смысл вынести их в базовый класс,
+    чтобы избежать дублирования.
+    """
+    
+    @property
+    def result_block(self) -> WebElement:
+        return self.find(*BasePageLocator.result_block)
+
+    @property
+    def result_text(self) -> WebElement:
+        return self.find(*BasePageLocator.result_text)
+
+    @property
+    def error_message(self) -> WebElement:
+        return self.find(*BasePageLocator.error_message)

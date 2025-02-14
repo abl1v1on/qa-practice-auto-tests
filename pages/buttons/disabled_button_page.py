@@ -16,7 +16,8 @@ class DisabledButtonPageLocator:
 class DisabledButtonPage(BaseButtonPage):
     def __init__(self, browser: WebDriver, timeout: int = 5) -> None:
         super().__init__(browser, timeout)
-    
+        self.url = self.url + '/disabled'
+
     @property
     def disabled_button(self) -> WebElement:
         return super().button

@@ -1,9 +1,13 @@
+from pathlib import Path
 from dataclasses import dataclass
 from selenium.webdriver.ie.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 
 from . import locator
+
+
+BASE_DIR = Path(__file__).parent.parent
 
 
 @dataclass(frozen=True)
@@ -47,6 +51,12 @@ class BasePage:
             element
         )
     
+    def execute_script(self, script_name: str) -> None:
+        script = BASE_DIR / 'scripts' / f'{script_name}.js'
+
+        if script.exists():
+            self.browser.execute_script(script.read_text())
+
     def check_result_text(self, text: str) -> bool:
         expected_result = text
         actual_result = self.result_text.text

@@ -51,6 +51,18 @@ class BasePage:
             element
         )
     
+    def scroll_to(self, element: WebElement) -> None:
+        self.browser.execute_script(
+            'arguments[0].scrollIntoView();',
+            element
+        )
+    
+    def js_click(self, element: WebElement) -> None:
+        self.browser.execute_script(
+            'arguments[0].click();',
+            element
+        )
+
     def execute_script(self, script_name: str) -> None:
         script = BASE_DIR / 'scripts' / f'{script_name}.js'
 

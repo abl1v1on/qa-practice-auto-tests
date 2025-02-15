@@ -12,7 +12,6 @@ def page(browser: WebDriver) -> Generator[LikeAButtonPage, None, None]:
     yield page
 
 
-@pytest.mark.xfail(reason='Selenium не нажимает на кнопки в headless моде')
 def test_like_a_button_result_block_is_displayed(page: LikeAButtonPage) -> None:
-    page.click_to_btn()
+    page.js_click(page.look_like_button_link)
     assert page.check_result_text('Submitted'), 'Неправильное отображение результата'

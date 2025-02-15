@@ -53,7 +53,8 @@ def test_password_field_password_is_too_long(page: PasswordInputPage) -> None:
 
 def test_password_field_is_required(page: PasswordInputPage) -> None:
     page.password_field.send_keys(Keys.ENTER)
-    assert page.validation_message(page.password_field) == 'Заполните это поле.', (
+    errors = ['Please fill out this field.', 'Заполните это поле.']
+    assert page.validation_message(page.password_field) in errors, (
         'Бразуер не отображает стандартную ошибку про обязательность поля'
     )
 

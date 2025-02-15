@@ -20,7 +20,7 @@ def proxy() -> Generator:
 @pytest.fixture(scope='session')
 def options() -> Generator[Options, None, None]:
     options = Options()
-    options.add_argument('--start-maximized')
+    options.add_argument('--headless')
     yield options
 
 

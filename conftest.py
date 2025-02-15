@@ -21,6 +21,7 @@ def proxy() -> Generator:
 def options() -> Generator[Options, None, None]:
     options = Options()
     options.add_argument('--headless')
+    # options.add_argument('--start-maximized')
     yield options
 
 

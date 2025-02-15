@@ -13,6 +13,7 @@ def page(browser: WebDriver) -> Generator[DisabledButtonPage, None, None]:
     yield page
 
 
+@pytest.mark.xfail(reason='Selenium не нажимает на кнопки в headless моде')
 def test_disabled_button_is_unclickable_if_state_is_disabled(
         page: DisabledButtonPage
     ) -> None:
@@ -21,6 +22,7 @@ def test_disabled_button_is_unclickable_if_state_is_disabled(
         page.click_to_btn()
 
 
+@pytest.mark.xfail(reason='Selenium не нажимает на кнопки в headless моде')
 def test_disabled_button_is_clickable_if_state_is_enabled(
         page: DisabledButtonPage
     ) -> None:
@@ -29,6 +31,7 @@ def test_disabled_button_is_clickable_if_state_is_enabled(
     assert page.check_result_text('Submitted'), 'Неправильное отображение результата'
 
 
+@pytest.mark.xfail(reason='Selenium не нажимает на кнопки в headless моде')
 def test_disabled_button_add_other_state_and_choose_it(page: DisabledButtonPage) -> None:
     page.execute_script('add_new_state')
     page.select_state('new-state')

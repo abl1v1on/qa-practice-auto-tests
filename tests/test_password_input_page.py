@@ -38,7 +38,7 @@ def test_password_field_min_length_password(page: PasswordInputPage) -> None:
     assert page.check_result_text(password), 'Неправильное отображение результата'
 
 
-@pytest.mark.xfail
+@pytest.mark.xfail(reason='need to fix bug')
 def test_password_field_password_is_too_long(page: PasswordInputPage) -> None:
     """
     BUG: Не отображается сообщение об 
@@ -119,7 +119,7 @@ def test_password_field_only_with_special_symbols(page: PasswordInputPage) -> No
     )
 
 
-@pytest.mark.xfail
+@pytest.mark.xfail(reason='need to fix bug')
 def test_password_field_password_with_space(page: PasswordInputPage) -> None:
     """
     BUG: Система пропускает пароль содержащий пробел

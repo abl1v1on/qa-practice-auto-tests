@@ -77,7 +77,7 @@ def test_email_field_email_with_digits_undrscp_hyphen_point(page: EmailInputPage
     assert page.check_result_text(email), 'Неправильнон отображение результата'
 
 
-@pytest.mark.xfail
+@pytest.mark.xfail(reason='need to fix bug')
 def test_email_field_email_too_long(page: EmailInputPage) -> None:
     """
     BUG: На странице не появляется ошибка с сообщением о том, 
@@ -121,7 +121,7 @@ def test_email_field_point_at_the_end(page: EmailInputPage) -> None:
         'Неправильное отображени ошибки'
     )
 
-@pytest.mark.xfail
+@pytest.mark.xfail(reason='need to fix bug')
 def test_email_field_hyphen_at_the_begining(page: EmailInputPage) -> None:
     """
     BUG: На странице не отображется ошибка с сообщением "Enter a valid email address."
@@ -134,7 +134,7 @@ def test_email_field_hyphen_at_the_begining(page: EmailInputPage) -> None:
     )
 
 
-@pytest.mark.xfail
+@pytest.mark.xfail(reason='need to fix bug')
 def test_email_field_hyphen_at_the_end(page: EmailInputPage) -> None:
     """
     BUG: На странице не отображется ошибка с сообщением "Enter a valid email address."
@@ -163,7 +163,7 @@ def test_email_field_only_with_spaces(page: EmailInputPage) -> None:
     )
 
 
-@pytest.mark.xfail
+@pytest.mark.xfail(reason='need to fix bug')
 def test_email_field_only_with_underscopes(page: EmailInputPage) -> None:
     """
     BUG: На странице не отображается ошибка с сообщением "Enter a valid email address."
@@ -176,7 +176,7 @@ def test_email_field_only_with_underscopes(page: EmailInputPage) -> None:
     )
 
 
-@pytest.mark.xfail
+@pytest.mark.xfail(reason='need to fix bug')
 def test_email_field_email_with_special_symbols(page: EmailInputPage) -> None:
     """
     BUG: На странице не отображается ошибка с сообщением "Enter a valid email address."

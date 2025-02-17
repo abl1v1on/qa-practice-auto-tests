@@ -1,3 +1,4 @@
+import time
 from pathlib import Path
 from dataclasses import dataclass
 from selenium.webdriver.ie.webdriver import WebDriver
@@ -78,6 +79,10 @@ class BasePage:
         expected_error = error 
         actual_error = self.error_message.text
         return True if expected_error == actual_error else False
+
+    @staticmethod
+    def sleep(s: int) -> None:
+        time.sleep(s)
 
     """
     NOTE: Базовые элементы, которые есть почти на каждой странице.

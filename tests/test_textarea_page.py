@@ -73,7 +73,7 @@ def test_textarea_too_long_text(page: TextareaPage) -> None:
 
 def test_textarea_is_required(page: TextareaPage) -> None:
     page.submit()
-    errors = ['Заполните это поле.']
+    errors = ['Заполните это поле.', 'Please fill out this field.']
     assert page.validation_message(page.textarea) in errors, (
         'Не отображается ошибка от браузера'
     )

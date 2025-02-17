@@ -43,7 +43,7 @@ def test_single_select_choose_valid_language(
 
 def test_single_select_if_required_field(page: SingleSelectPage) -> None:
     page.submit()
-    errors = ['Выберите один из пунктов списка.']
+    errors = ['Выберите один из пунктов списка.', 'Please select an item in the list.']
     assert page.validation_message(page.choose_lang_select) in errors, (
         'Отсутствует сообщение об обязательности поля от браузера'
     )

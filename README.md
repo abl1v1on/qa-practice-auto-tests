@@ -18,13 +18,6 @@ Install the required dependencies using the following:
 pip install -r requirements.txt
 ~~~
 
-Project Structure
-The project is organized as follows:
-
-- conftest.py: Contains the pytest fixtures for browser setup and session management.
-- utils.py: Helper functions for proxy management and sending Telegram messages with test results.
-pages: 
-
 
 ## Base Classes
 The framework uses base classes for different types of elements, such as buttons, inputs, checkboxes, select elements, and textareas. These base classes handle common interactions for each type of element, reducing redundancy in the code.

@@ -34,6 +34,7 @@ def service() -> Generator[Service, None, None]:
 @pytest.fixture(scope='function')
 def browser(options: Options, service: Service) -> Generator[WebDriver, None, None]:
     chrome_browser = Chrome(options=options, service=service)
+    chrome_browser.set_window_size(1920, 1080)
     yield chrome_browser
     chrome_browser.quit()
 

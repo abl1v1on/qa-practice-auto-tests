@@ -73,6 +73,13 @@ BOT_TOKEN=your-telegram-bot-token
 CHAT_ID=your-chat-id
 ~~~
 
+## Test cases
+Test documentation was maintained in TestRail. Test cases were developed, which are logically divided into sections. During the test run, 8 defects were discovered.
+
+![alt text](readme_assets/image.png)
+
+You can view the list of test cases in the file `testrail-report-1.pdf`
+
 ## Notes
 - The framework is designed to be flexible and extensible. You can add new page objects or helper functions as needed.
 - The framework is currently configured for testing the https://www.qa-practice.com/ website, but you can modify the URLs and locators to suit your application.
